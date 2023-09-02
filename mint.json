@@ -1,9 +1,9 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "LLM Rails",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/logo.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
@@ -21,23 +21,23 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:hello@llmrails.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://console.llmrails.com/"
   },
   "anchors": [
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://llmrails.com"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://llmrails.com"
     }
   ],
   "navigation": [
@@ -60,9 +60,14 @@
       "group": "Chat",
       "pages": [
         "chat/chat",
-        "chat/completion",
-        "chat/get-apps",
-        "chat/get-app-detail"
+        "chat/completion"
+      ]
+    },
+    {
+      "group": "Apps",
+      "pages": [
+        "apps/get-apps",
+        "apps/get-app-detail"
       ]
     },
     {

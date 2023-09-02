@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="119.35228mm"
+   height="29.156921mm"
+   viewBox="0 0 119.35228 29.156921"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   sodipodi:docname="original.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="1.4555315"
+     inkscape:cx="376.83829"
+     inkscape:cy="701.80549"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="38.255258,29.163352"
+       orientation="0,-1"
+       id="guide1823"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="37.072197,-0.097639239"
+       orientation="0,-1"
+       id="guide1825"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="32.734314,26.324012"
+       orientation="1,0"
+       id="guide1827"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="77.532815,24.115635"
+       orientation="0,-1"
+       id="guide1829"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="77.611685,5.1078207"
+       orientation="0,-1"
+       id="guide1831"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-26.497504,-219.18783)">
+    <g
+       aria-label="◐"
+       id="text275-9-6"
+       style="font-weight:600;font-size:67.8561px;font-family:Inter;-inkscape-font-specification:'Inter Semi-Bold';stroke-width:5.65466"
+       inkscape:export-filename="llmrails-logo-black.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(-95.069796,95.433352)">
+      <path
+         d="m 150.75735,138.33294 q 0,6.03018 -4.30727,10.30432 -4.27414,4.27414 -10.30433,4.27414 -5.99704,0 -10.30432,-4.27414 -4.27413,-4.27414 -4.27413,-10.30432 0,-6.06332 4.27413,-10.30432 4.27414,-4.27414 10.30432,-4.27414 6.03019,0 10.30433,4.27414 4.30727,4.27414 4.30727,10.30432 z m -14.6116,12.09349 q 4.96993,0 8.51515,-3.54521 3.57835,-3.57835 3.57835,-8.54828 0,-5.00306 -3.54522,-8.54828 -3.54521,-3.54522 -8.54828,-3.54522 z"
+         id="path979" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5778px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#000000;stroke-width:0.264583"
+       x="60.754246"
+       y="242.60915"
+       id="text1821"><tspan
+         sodipodi:role="line"
+         id="tspan1819"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5778px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';stroke-width:0.264583"
+         x="60.754246"
+         y="242.60915">llmrails</tspan></text>
+  </g>
+</svg>

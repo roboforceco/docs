@@ -1,1 +1,1307 @@
-{"openapi":"3.0.2","info":{"title":"LLM API","description":"LLM API","version":"1.0.0"},"paths":{"/v1/datastores/{datastore_id}":{"get":{"tags":["Datastores"],"summary":"Status","operationId":"Status_v1_datastores__datastore_id__get","parameters":[{"required":true,"schema":{"title":"Datastore Id","type":"string"},"name":"datastore_id","in":"path"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DataStoreStatus"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}},"delete":{"tags":["Datastores"],"summary":"Delete","operationId":"Delete_v1_datastores__datastore_id__delete","parameters":[{"required":true,"schema":{"title":"Datastore Id","type":"string"},"name":"datastore_id","in":"path"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/DeleteSchmeResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/datastores":{"post":{"tags":["Datastores"],"summary":"Create","operationId":"Create_v1_datastores_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/DataStoreRequest"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateDatastoreResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/datastores/{datastore_id}/search":{"post":{"tags":["Datastores"],"summary":"Search","operationId":"Search_v1_datastores__datastore_id__search_post","parameters":[{"required":true,"schema":{"title":"Datastore Id","type":"string"},"name":"datastore_id","in":"path"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/SearchBody"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/SearchResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/datastore/{schema_id}/text":{"post":{"tags":["Upload"],"summary":"Text","description":"Upload Text","operationId":"Text_v1_datastore__schema_id__text_post","parameters":[{"required":true,"schema":{"title":"Schema Id","type":"string"},"name":"schema_id","in":"path"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/TextRequestBody"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UploadResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/datastore/{schema_id}/file":{"post":{"tags":["Upload"],"summary":"File","description":"Upload file","operationId":"File_v1_datastore__schema_id__file_post","parameters":[{"required":true,"schema":{"title":"Schema Id","type":"string"},"name":"schema_id","in":"path"}],"requestBody":{"content":{"multipart/form-data":{"schema":{"$ref":"#/components/schemas/Body_File_v1_datastore__schema_id__file_post"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UploadResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/chat/{app_id}":{"post":{"tags":["Chat"],"summary":"Chat","operationId":"Chat_v1_chat__app_id__post","parameters":[{"required":true,"schema":{"title":"App Id","type":"string"},"name":"app_id","in":"path"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ConversationRequestBody"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/completion/{app_id}":{"post":{"tags":["Chat"],"summary":"Completion","operationId":"Completion_v1_completion__app_id__post","parameters":[{"required":true,"schema":{"title":"App Id","type":"string"},"name":"app_id","in":"path"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CompletionBody"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/messages/{app_id}/{session_id}":{"get":{"tags":["Messages"],"summary":"Get Messages","operationId":"get_messages_v1_messages__app_id___session_id__get","parameters":[{"required":true,"schema":{"title":"App Id","type":"string"},"name":"app_id","in":"path"},{"required":true,"schema":{"title":"Session Id","type":"string"},"name":"session_id","in":"path"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/MessageResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/messages/{message_id}":{"get":{"tags":["Messages"],"summary":"Get Message Sources","description":"Get Sources","operationId":"get_message_sources_v1_messages__message_id__get","parameters":[{"required":true,"schema":{"title":"Message Id","type":"string"},"name":"message_id","in":"path"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"title":"Response Get Message Sources V1 Messages  Message Id  Get","type":"array","items":{"$ref":"#/components/schemas/SourcesItemResponse"}}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/datastore/{schema_id}/website":{"post":{"tags":["Crawl"],"summary":"Start Crawl Task","operationId":"Start_Crawl_Task_v1_datastore__schema_id__website_post","parameters":[{"required":true,"schema":{"title":"Schema Id","type":"string"},"name":"schema_id","in":"path"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CrawlTaskRequest"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CrawlTaskResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/datastore/{schema_id}/website/{task_id}":{"get":{"tags":["Crawl"],"summary":"Get Crawl Results","operationId":"Get_Crawl_results_v1_datastore__schema_id__website__task_id__get","parameters":[{"required":true,"schema":{"title":"Schema Id","type":"string"},"name":"schema_id","in":"path"},{"required":true,"schema":{"title":"Task Id","type":"string"},"name":"task_id","in":"path"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CrawlStatusResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/datastore/{schema_id}/website/{task_id}/embed":{"post":{"tags":["Crawl"],"summary":"Vectorize Website","description":"Embed websites","operationId":"vectorize_website_v1_datastore__schema_id__website__task_id__embed_post","parameters":[{"required":true,"schema":{"title":"Schema Id","type":"string"},"name":"schema_id","in":"path"},{"required":true,"schema":{"title":"Task Id","type":"string"},"name":"task_id","in":"path"}],"requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/VectorizeRequest"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/VectorizeResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/v1/apps":{"get":{"tags":["Chat"],"summary":"Get Apps","operationId":"get_apps_v1_apps_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"title":"Response Get Apps V1 Apps Get","type":"array","items":{"$ref":"#/components/schemas/AppItemResponse"}}}}}}}},"/v1/apps/{app_id}":{"get":{"tags":["Chat"],"summary":"Get App Detail","operationId":"get_app_detail_v1_apps__app_id__get","parameters":[{"required":true,"schema":{"title":"App Id","type":"string"},"name":"app_id","in":"path"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/AppItemResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}}},"components":{"schemas":{"AppItemResponse":{"title":"AppItemResponse","required":["pid","name","type","datastore_id","created","updated"],"type":"object","properties":{"pid":{"title":"Pid","type":"string"},"name":{"title":"Name","type":"string"},"type":{"title":"Type","type":"string"},"datastore_id":{"title":"Datastore Id","type":"integer"},"widget_configs":{"title":"Widget Configs"},"input_configs":{"title":"Input Configs"},"created":{"title":"Created","type":"integer"},"updated":{"title":"Updated","type":"integer"}}},"AttributeItem":{"title":"AttributeItem","required":["name","type"],"type":"object","properties":{"name":{"title":"Name","type":"string","description":"Field name"},"type":{"allOf":[{"$ref":"#/components/schemas/AttributeTypeChoices"}],"description":"Field type"}}},"AttributeTypeChoices":{"title":"AttributeTypeChoices","enum":["int","text","boolean","number"],"type":"string","description":"An enumeration."},"Body_File_v1_datastore__schema_id__file_post":{"title":"Body_File_v1_datastore__schema_id__file_post","required":["file"],"type":"object","properties":{"file":{"title":"File","type":"string","format":"binary"}}},"CompletionBody":{"title":"CompletionBody","required":["stream","text"],"type":"object","properties":{"stream":{"title":"Stream","type":"boolean"},"text":{"title":"Text","type":"string"}}},"ConversationRequestBody":{"title":"ConversationRequestBody","required":["stream","text"],"type":"object","properties":{"stream":{"title":"Stream","type":"boolean"},"text":{"title":"Text","type":"string"},"session_id":{"title":"Session Id","type":"string","default":""},"user_id":{"title":"User Id","type":"string","default":""}}},"CrawlStatusItem":{"title":"CrawlStatusItem","required":["id","url"],"type":"object","properties":{"id":{"title":"Id","type":"integer"},"url":{"title":"Url","type":"string"}}},"CrawlStatusResponse":{"title":"CrawlStatusResponse","required":["status","links"],"type":"object","properties":{"status":{"$ref":"#/components/schemas/Statuses"},"links":{"title":"Links","type":"array","items":{"$ref":"#/components/schemas/CrawlStatusItem"}}}},"CrawlTaskRequest":{"title":"CrawlTaskRequest","required":["link"],"type":"object","properties":{"link":{"title":"Link","type":"string"}}},"CrawlTaskResponse":{"title":"CrawlTaskResponse","required":["id"],"type":"object","properties":{"id":{"title":"Id","type":"string"}}},"CreateDatastoreResponse":{"title":"CreateDatastoreResponse","required":["id"],"type":"object","properties":{"id":{"title":"Id","type":"string","description":"Created Datastore id"}}},"DataStoreRequest":{"title":"DataStoreRequest","required":["name","model"],"type":"object","properties":{"name":{"title":"Name","type":"string","description":"Datastore name"},"description":{"title":"Description","type":"string","description":"Datastore description","default":""},"model":{"allOf":[{"$ref":"#/components/schemas/ModelChoices"}],"description":"Embedding model"},"attributes":{"title":"Attributes","type":"array","items":{"$ref":"#/components/schemas/AttributeItem"},"default":[]}}},"DataStoreStatus":{"title":"DataStoreStatus","required":["status"],"type":"object","properties":{"status":{"$ref":"#/components/schemas/StatusChoices"}}},"DeleteSchmeResponse":{"title":"DeleteSchmeResponse","type":"object","properties":{"status":{"title":"Status","type":"string","default":"ok"}}},"HTTPValidationError":{"title":"HTTPValidationError","type":"object","properties":{"detail":{"title":"Detail","type":"array","items":{"$ref":"#/components/schemas/ValidationError"}}}},"MessageItem":{"title":"MessageItem","required":["pid","type","message","created"],"type":"object","properties":{"pid":{"title":"Pid","type":"string","description":"Message id"},"type":{"allOf":[{"$ref":"#/components/schemas/TypeEnum"}],"description":"Message type. 0 - Bot, 1- User "},"message":{"title":"Message","type":"string","description":"Message text"},"created":{"title":"Created","type":"integer","description":"Created timestamp of message"}}},"MessageResponse":{"title":"MessageResponse","required":["messages"],"type":"object","properties":{"messages":{"title":"Messages","type":"array","items":{"$ref":"#/components/schemas/MessageItem"}}}},"MetadataModel":{"title":"MetadataModel","required":["source","source_url","score"],"type":"object","properties":{"source":{"title":"Source","type":"string","description":"Document source type. One of text, website and file"},"source_url":{"title":"Source Url","type":"string","description":"Document url"},"score":{"title":"Score","type":"number","description":"Search score"}}},"ModelChoices":{"title":"ModelChoices","enum":["embedding-english-v1","embedding-multi-v1"],"type":"string","description":"An enumeration."},"SearchBody":{"title":"SearchBody","required":["text"],"type":"object","properties":{"text":{"title":"Text","type":"string"},"summarize":{"title":"Summarize","type":"boolean","description":"Summarize responses or not","default":false}}},"SearchResponse":{"title":"SearchResponse","required":["results"],"type":"object","properties":{"results":{"title":"Results","type":"array","items":{"$ref":"#/components/schemas/SearchResponseItem"}},"summarization":{"title":"Summarization","type":"string","description":"Summarization of responses based on given input"}}},"SearchResponseItem":{"title":"SearchResponseItem","required":["text","metadata"],"type":"object","properties":{"text":{"title":"Text","type":"string","description":"Document text"},"metadata":{"title":"Metadata","allOf":[{"$ref":"#/components/schemas/MetadataModel"}],"description":"Document metadata"}}},"SourcesItemResponse":{"title":"SourcesItemResponse","required":["score","source"],"type":"object","properties":{"score":{"title":"Score","type":"number"},"source":{"title":"Source","type":"string"},"source_url":{"title":"Source Url","type":"string"}}},"StatusChoices":{"title":"StatusChoices","enum":["processing","ready"],"type":"string","description":"An enumeration."},"Statuses":{"title":"Statuses","enum":["processing","completed"],"type":"string","description":"An enumeration."},"TextRequestBody":{"title":"TextRequestBody","required":["text"],"type":"object","properties":{"text":{"title":"Text","type":"string"}}},"TypeEnum":{"title":"TypeEnum","enum":[0,1],"type":"integer","description":"An enumeration."},"UploadResponse":{"title":"UploadResponse","type":"object","properties":{"status":{"title":"Status","type":"string","default":"ok"}}},"ValidationError":{"title":"ValidationError","required":["loc","msg","type"],"type":"object","properties":{"loc":{"title":"Location","type":"array","items":{"anyOf":[{"type":"string"},{"type":"integer"}]}},"msg":{"title":"Message","type":"string"},"type":{"title":"Error Type","type":"string"}}},"VectorizeRequest":{"title":"VectorizeRequest","required":["links"],"type":"object","properties":{"links":{"title":"Links","type":"array","items":{"$ref":"#/components/schemas/CrawlStatusItem"}}}},"VectorizeResponse":{"title":"VectorizeResponse","type":"object","properties":{"status":{"title":"Status","type":"string","default":"ok"}}}}}}
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "LLM API",
+        "description": "LLM API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/v1/datastores/{datastore_id}": {
+            "get": {
+                "tags": [
+                    "Datastores"
+                ],
+                "summary": "Status",
+                "operationId": "Status_v1_datastores__datastore_id__get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DataStoreStatus"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Datastores"
+                ],
+                "summary": "Delete",
+                "operationId": "Delete_v1_datastores__datastore_id__delete",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeleteSchmeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/datastores": {
+            "post": {
+                "tags": [
+                    "Datastores"
+                ],
+                "summary": "Create",
+                "operationId": "Create_v1_datastores_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DataStoreRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateDatastoreResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/datastores/{datastore_id}/search": {
+            "post": {
+                "tags": [
+                    "Datastores"
+                ],
+                "summary": "Search",
+                "operationId": "Search_v1_datastores__datastore_id__search_post",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SearchBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SearchResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/datastore/{datastore_id}/text": {
+            "post": {
+                "tags": [
+                    "Upload"
+                ],
+                "summary": "Text",
+                "description": "Upload Text",
+                "operationId": "Text_v1_datastore__datastore_id__text_post",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TextRequestBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UploadResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/datastore/{datastore_id}/file": {
+            "post": {
+                "tags": [
+                    "Upload"
+                ],
+                "summary": "File",
+                "description": "Upload file",
+                "operationId": "File_v1_datastore__datastore_id__file_post",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Body_File_v1_datastore__datastore_id__file_post"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UploadResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/chat/{app_id}": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Chat",
+                "operationId": "Chat_v1_chat__app_id__post",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "App Id",
+                            "type": "string"
+                        },
+                        "name": "app_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ConversationRequestBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/completion/{app_id}": {
+            "post": {
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "Completion",
+                "operationId": "Completion_v1_completion__app_id__post",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "App Id",
+                            "type": "string"
+                        },
+                        "name": "app_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CompletionBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/messages/{app_id}/{session_id}": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Get Messages",
+                "operationId": "get_messages_v1_messages__app_id___session_id__get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "App Id",
+                            "type": "string"
+                        },
+                        "name": "app_id",
+                        "in": "path"
+                    },
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Session Id",
+                            "type": "string"
+                        },
+                        "name": "session_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MessageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/messages/{message_id}": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Get Message Sources",
+                "description": "Get Sources",
+                "operationId": "get_message_sources_v1_messages__message_id__get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Message Id",
+                            "type": "string"
+                        },
+                        "name": "message_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response Get Message Sources V1 Messages  Message Id  Get",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SourcesItemResponse"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/datastore/{datastore_id}/website": {
+            "post": {
+                "tags": [
+                    "Crawl"
+                ],
+                "summary": "Start Crawl Task",
+                "operationId": "Start_Crawl_Task_v1_datastore__datastore_id__website_post",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CrawlTaskRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CrawlTaskResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/datastore/{datastore_id}/website/{task_id}": {
+            "get": {
+                "tags": [
+                    "Crawl"
+                ],
+                "summary": "Get Crawl Results",
+                "operationId": "Get_Crawl_results_v1_datastore__datastore_id__website__task_id__get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    },
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Task Id",
+                            "type": "string"
+                        },
+                        "name": "task_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CrawlStatusResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/datastore/{datastore_id}/website/{task_id}/embed": {
+            "post": {
+                "tags": [
+                    "Crawl"
+                ],
+                "summary": "Vectorize Website",
+                "description": "Embed websites",
+                "operationId": "vectorize_website_v1_datastore__datastore_id__website__task_id__embed_post",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    },
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Task Id",
+                            "type": "string"
+                        },
+                        "name": "task_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/VectorizeRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/VectorizeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/apps": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "List",
+                "operationId": "List_v1_apps_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "Response List V1 Apps Get",
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AppItemResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/apps/{app_id}": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Get",
+                "operationId": "Get_v1_apps__app_id__get",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "App Id",
+                            "type": "string"
+                        },
+                        "name": "app_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AppItemResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AppItemResponse": {
+                "title": "AppItemResponse",
+                "required": [
+                    "pid",
+                    "name",
+                    "type",
+                    "datastore_id",
+                    "created",
+                    "updated"
+                ],
+                "type": "object",
+                "properties": {
+                    "pid": {
+                        "title": "Pid",
+                        "type": "string"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Type",
+                        "type": "string"
+                    },
+                    "datastore_id": {
+                        "title": "Datastore Id",
+                        "type": "integer"
+                    },
+                    "widget_configs": {
+                        "title": "Widget Configs"
+                    },
+                    "input_configs": {
+                        "title": "Input Configs"
+                    },
+                    "created": {
+                        "title": "Created",
+                        "type": "integer"
+                    },
+                    "updated": {
+                        "title": "Updated",
+                        "type": "integer"
+                    }
+                }
+            },
+            "AttributeItem": {
+                "title": "AttributeItem",
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string",
+                        "description": "Field name"
+                    },
+                    "type": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AttributeTypeChoices"
+                            }
+                        ],
+                        "description": "Field type"
+                    }
+                }
+            },
+            "AttributeTypeChoices": {
+                "title": "AttributeTypeChoices",
+                "enum": [
+                    "int",
+                    "text",
+                    "boolean",
+                    "number"
+                ],
+                "type": "string",
+                "description": "An enumeration."
+            },
+            "Body_File_v1_datastore__datastore_id__file_post": {
+                "title": "Body_File_v1_datastore__datastore_id__file_post",
+                "required": [
+                    "file"
+                ],
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "title": "File",
+                        "type": "string",
+                        "format": "binary"
+                    }
+                }
+            },
+            "CompletionBody": {
+                "title": "CompletionBody",
+                "required": [
+                    "stream",
+                    "text"
+                ],
+                "type": "object",
+                "properties": {
+                    "stream": {
+                        "title": "Stream",
+                        "type": "boolean"
+                    },
+                    "text": {
+                        "title": "Text",
+                        "type": "string"
+                    }
+                }
+            },
+            "ConversationRequestBody": {
+                "title": "ConversationRequestBody",
+                "required": [
+                    "stream",
+                    "text"
+                ],
+                "type": "object",
+                "properties": {
+                    "stream": {
+                        "title": "Stream",
+                        "type": "boolean"
+                    },
+                    "text": {
+                        "title": "Text",
+                        "type": "string"
+                    },
+                    "session_id": {
+                        "title": "Session Id",
+                        "type": "string",
+                        "default": ""
+                    },
+                    "user_id": {
+                        "title": "User Id",
+                        "type": "string",
+                        "default": ""
+                    }
+                }
+            },
+            "CrawlStatusItem": {
+                "title": "CrawlStatusItem",
+                "required": [
+                    "id",
+                    "url"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "integer"
+                    },
+                    "url": {
+                        "title": "Url",
+                        "type": "string"
+                    }
+                }
+            },
+            "CrawlStatusResponse": {
+                "title": "CrawlStatusResponse",
+                "required": [
+                    "status",
+                    "links"
+                ],
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/Statuses"
+                    },
+                    "links": {
+                        "title": "Links",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CrawlStatusItem"
+                        }
+                    }
+                }
+            },
+            "CrawlTaskRequest": {
+                "title": "CrawlTaskRequest",
+                "required": [
+                    "link"
+                ],
+                "type": "object",
+                "properties": {
+                    "link": {
+                        "title": "Link",
+                        "type": "string"
+                    }
+                }
+            },
+            "CrawlTaskResponse": {
+                "title": "CrawlTaskResponse",
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    }
+                }
+            },
+            "CreateDatastoreResponse": {
+                "title": "CreateDatastoreResponse",
+                "required": [
+                    "id"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "title": "Id",
+                        "type": "string",
+                        "description": "Created Datastore id"
+                    }
+                }
+            },
+            "DataStoreRequest": {
+                "title": "DataStoreRequest",
+                "required": [
+                    "name",
+                    "model"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "type": "string",
+                        "description": "Datastore name"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "type": "string",
+                        "description": "Datastore description",
+                        "default": ""
+                    },
+                    "model": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ModelChoices"
+                            }
+                        ],
+                        "description": "Embedding model"
+                    },
+                    "attributes": {
+                        "title": "Attributes",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AttributeItem"
+                        },
+                        "default": []
+                    }
+                }
+            },
+            "DataStoreStatus": {
+                "title": "DataStoreStatus",
+                "required": [
+                    "status"
+                ],
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/StatusChoices"
+                    }
+                }
+            },
+            "DeleteSchmeResponse": {
+                "title": "DeleteSchmeResponse",
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "title": "Status",
+                        "type": "string",
+                        "default": "ok"
+                    }
+                }
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "MessageItem": {
+                "title": "MessageItem",
+                "required": [
+                    "pid",
+                    "type",
+                    "message",
+                    "created"
+                ],
+                "type": "object",
+                "properties": {
+                    "pid": {
+                        "title": "Pid",
+                        "type": "string",
+                        "description": "Message id"
+                    },
+                    "type": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/TypeEnum"
+                            }
+                        ],
+                        "description": "Message type. 0 - Bot, 1- User "
+                    },
+                    "message": {
+                        "title": "Message",
+                        "type": "string",
+                        "description": "Message text"
+                    },
+                    "created": {
+                        "title": "Created",
+                        "type": "integer",
+                        "description": "Created timestamp of message"
+                    }
+                }
+            },
+            "MessageResponse": {
+                "title": "MessageResponse",
+                "required": [
+                    "messages"
+                ],
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "title": "Messages",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MessageItem"
+                        }
+                    }
+                }
+            },
+            "MetadataModel": {
+                "title": "MetadataModel",
+                "required": [
+                    "type",
+                    "url",
+                    "name",
+                    "score"
+                ],
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "title": "Type",
+                        "type": "string",
+                        "description": "Document source type. One of text, website and file"
+                    },
+                    "url": {
+                        "title": "Url",
+                        "type": "string",
+                        "description": "Document url"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string",
+                        "description": "Document name"
+                    },
+                    "score": {
+                        "title": "Score",
+                        "type": "number",
+                        "description": "Search score"
+                    }
+                }
+            },
+            "ModelChoices": {
+                "title": "ModelChoices",
+                "enum": [
+                    "embedding-english-v1",
+                    "embedding-multi-v1"
+                ],
+                "type": "string",
+                "description": "An enumeration."
+            },
+            "SearchBody": {
+                "title": "SearchBody",
+                "required": [
+                    "text"
+                ],
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "title": "Text",
+                        "type": "string"
+                    },
+                    "summarize": {
+                        "title": "Summarize",
+                        "type": "boolean",
+                        "description": "Summarize responses or not",
+                        "default": false
+                    }
+                }
+            },
+            "SearchResponse": {
+                "title": "SearchResponse",
+                "required": [
+                    "results"
+                ],
+                "type": "object",
+                "properties": {
+                    "results": {
+                        "title": "Results",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SearchResponseItem"
+                        }
+                    },
+                    "summarization": {
+                        "title": "Summarization",
+                        "type": "string",
+                        "description": "Summarization of responses based on given input"
+                    }
+                }
+            },
+            "SearchResponseItem": {
+                "title": "SearchResponseItem",
+                "required": [
+                    "text",
+                    "metadata"
+                ],
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "title": "Text",
+                        "type": "string",
+                        "description": "Document text"
+                    },
+                    "metadata": {
+                        "title": "Metadata",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MetadataModel"
+                            }
+                        ],
+                        "description": "Document metadata"
+                    }
+                }
+            },
+            "SourcesItemResponse": {
+                "title": "SourcesItemResponse",
+                "required": [
+                    "score",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "score": {
+                        "title": "Score",
+                        "type": "number"
+                    },
+                    "type": {
+                        "title": "Type",
+                        "type": "string"
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "url": {
+                        "title": "Url",
+                        "type": "string"
+                    }
+                }
+            },
+            "StatusChoices": {
+                "title": "StatusChoices",
+                "enum": [
+                    "processing",
+                    "ready"
+                ],
+                "type": "string",
+                "description": "An enumeration."
+            },
+            "Statuses": {
+                "title": "Statuses",
+                "enum": [
+                    "processing",
+                    "completed"
+                ],
+                "type": "string",
+                "description": "An enumeration."
+            },
+            "TextRequestBody": {
+                "title": "TextRequestBody",
+                "required": [
+                    "text"
+                ],
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "title": "Text",
+                        "type": "string"
+                    }
+                }
+            },
+            "TypeEnum": {
+                "title": "TypeEnum",
+                "enum": [
+                    0,
+                    1
+                ],
+                "type": "integer",
+                "description": "An enumeration."
+            },
+            "UploadResponse": {
+                "title": "UploadResponse",
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "title": "Status",
+                        "type": "string",
+                        "default": "ok"
+                    }
+                }
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            },
+            "VectorizeRequest": {
+                "title": "VectorizeRequest",
+                "required": [
+                    "links"
+                ],
+                "type": "object",
+                "properties": {
+                    "links": {
+                        "title": "Links",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CrawlStatusItem"
+                        }
+                    }
+                }
+            },
+            "VectorizeResponse": {
+                "title": "VectorizeResponse",
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "title": "Status",
+                        "type": "string",
+                        "default": "ok"
+                    }
+                }
+            }
+        }
+    }
+}
