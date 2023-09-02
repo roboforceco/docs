@@ -1,0 +1,30 @@
+---
+openapi: post /v1/completion/{app_id}
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '{base_url}/v1/completion/{app_id}' \
+--header 'X-API-KEY: {token}' \
+--header 'Content-Type: application/json' \
+--data '{   
+    "stream":false,
+    "text":"What is LLM Rails?"
+}
+'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "status": "ok"
+}
+```
+
+</ResponseExample>

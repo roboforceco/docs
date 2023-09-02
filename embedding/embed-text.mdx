@@ -1,0 +1,45 @@
+---
+openapi: embedding post /v1/embeddings
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location 'http://dev-api.llmrails.com/v1/embeddings' \
+--header 'Content-Type: application/json' \
+--data '{
+   "input":["As they rounded a bend in the path that ran beside the river, Lara recognized the silhouette of a fig tree atop a nearby hill."],
+   "model":"embedding-multi-v1" 
+}'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "object": "list",
+    "data": [
+        {
+            "object": "embedding",
+            "index": 0,
+            "embedding": [
+                0.03622923046350479,
+                -0.007412001956254244,
+                ......
+                -0.014109186828136444
+            ]
+        }
+    ],
+    "model": "embedding-multi-v1",
+    "usage": {
+        "prompt_tokens": 38,
+        "total_tokens": 38
+    }
+}
+```
+
+</ResponseExample>

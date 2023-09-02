@@ -1,0 +1,269 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Embedding API",
+        "description": "Embedding API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/v1/embeddings": {
+            "post": {
+                "tags": [
+                    "Embedding"
+                ],
+                "summary": "Embed Text",
+                "operationId": "embed_text_v1_embeddings_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EmbedRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EmbedResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CountRequest": {
+                "title": "CountRequest",
+                "required": [
+                    "text",
+                    "model"
+                ],
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "title": "Text",
+                        "type": "string",
+                        "description": "Text for counting token count"
+                    },
+                    "model": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ModelChices"
+                            }
+                        ],
+                        "description": "Embedding model choice"
+                    }
+                }
+            },
+            "CountResponse": {
+                "title": "CountResponse",
+                "required": [
+                    "count"
+                ],
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "title": "Count",
+                        "type": "integer",
+                        "description": "Token count"
+                    }
+                }
+            },
+            "EmbedRequest": {
+                "title": "EmbedRequest",
+                "required": [
+                    "input",
+                    "model"
+                ],
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "title": "Input",
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        ],
+                        "description": "Input text to embed"
+                    },
+                    "model": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ModelChices"
+                            }
+                        ],
+                        "description": "Embedding model choice"
+                    }
+                }
+            },
+            "EmbedResponse": {
+                "title": "EmbedResponse",
+                "required": [
+                    "object",
+                    "data",
+                    "model",
+                    "usage"
+                ],
+                "type": "object",
+                "properties": {
+                    "object": {
+                        "title": "Object",
+                        "type": "string",
+                        "description": "Object type, list is only choice now"
+                    },
+                    "data": {
+                        "title": "Data",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EmbeddingItem"
+                        },
+                        "description": "Embedding Response Item"
+                    },
+                    "model": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ModelChices"
+                            }
+                        ],
+                        "description": "Embedding model"
+                    },
+                    "usage": {
+                        "title": "Usage",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/UsageItem"
+                            }
+                        ],
+                        "description": "Usage response"
+                    }
+                }
+            },
+            "EmbeddingItem": {
+                "title": "EmbeddingItem",
+                "required": [
+                    "object",
+                    "index",
+                    "embedding"
+                ],
+                "type": "object",
+                "properties": {
+                    "object": {
+                        "title": "Object",
+                        "type": "string",
+                        "description": "Object Data"
+                    },
+                    "index": {
+                        "title": "Index",
+                        "type": "integer",
+                        "description": "Index of embedding based on given input"
+                    },
+                    "embedding": {
+                        "title": "Embedding",
+                        "type": "array",
+                        "items": {},
+                        "description": "Embedding vectors"
+                    }
+                }
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "ModelChices": {
+                "title": "ModelChices",
+                "enum": [
+                    "embedding-english-v1",
+                    "embedding-multi-v1"
+                ],
+                "type": "string",
+                "description": "An enumeration."
+            },
+            "UsageItem": {
+                "title": "UsageItem",
+                "required": [
+                    "prompt_tokens",
+                    "total_tokens"
+                ],
+                "type": "object",
+                "properties": {
+                    "prompt_tokens": {
+                        "title": "Prompt Tokens",
+                        "type": "integer",
+                        "description": "Used token count"
+                    },
+                    "total_tokens": {
+                        "title": "Total Tokens",
+                        "type": "integer",
+                        "description": "Used token count"
+                    }
+                }
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

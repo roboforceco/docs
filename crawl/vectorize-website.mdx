@@ -1,0 +1,42 @@
+---
+openapi: post /v1/datastore/{schema_id}/website/{task_id}/vectorize
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '/v1/datastore/{datastore_id}/website/{task_id}/embed' \
+--header 'X-API-KEY: {token}' \
+--header 'Content-Type: application/json' \
+--data '{
+    "links": [
+        {
+            "id": 1,
+            "url": "https://llmrails.com/"
+        },
+        {
+            "id": 2,
+            "url": "https://www.llmrails.com/embedding-api"
+        },
+        {
+            "id": 3,
+            "url": "https://www.llmrails.com/chat"
+        }
+    ]
+}'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "status": "ok"
+}
+```
+
+</ResponseExample>
+

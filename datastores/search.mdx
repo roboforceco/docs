@@ -1,0 +1,54 @@
+---
+openapi: post /v1/datastores/{datastore_id}/search
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '/v1/datastores/{datastore_id}/search' \
+--header 'Content-Type: application/json' \
+--header 'X-API-KEY: {token}' \
+--data '{
+    "text":"What is pricing?"
+}
+'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "results": [
+        {
+            "text": "Text 1",
+            "metadata": {
+                "source": "text",
+                "source_url": "",
+                "score": 0.008196721
+            }
+        },
+        {
+            "text": "Text 2",
+            "metadata": {
+                "source": "file",
+                "source_url": "url",
+                "score": 0.008196721
+            }
+        },
+        {
+            "text": "Text 3",
+            "metadata": {
+                "source": "website",
+                "source_url": "url",
+                "score": 0.008064516
+            }
+        }
+    ]
+}
+```
+
+</ResponseExample>

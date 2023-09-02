@@ -1,0 +1,28 @@
+---
+openapi: post /v1/datastore/{schema_id}/text
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '/v1/datastore/{datastore_id}/text' \
+--header 'Content-Type: application/json' \
+--header 'X-API-KEY: {token}' \
+--data '{
+    "text":"Hey There"
+}'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "status": "ok"
+}
+```
+
+</ResponseExample>

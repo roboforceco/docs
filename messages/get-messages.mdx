@@ -1,0 +1,38 @@
+---
+openapi: get /v1/messages/{app_id}/{session_id}
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '/v1/messages/{app_id}/{session_id}' \
+--header 'X-API-KEY: {token}'
+'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "messages": [
+        {
+            "pid": "d5c90567-84b3-4e9e-9527-f5a927b73620",
+            "type": 1,
+            "message": "Who ordered it ?",
+            "created": 1693560933
+        },
+        {
+            "pid": "caced2bc-82bb-4178-960b-c5e0dfa8e608",
+            "type": 0,
+            "message": "The order was issued by President Donald J. Trump.",
+            "created": 1693560934
+        }
+    ]
+}
+```
+
+</ResponseExample>

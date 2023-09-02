@@ -1,0 +1,38 @@
+---
+openapi: get /v1/messages/{message_id}
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '/v1/messages/{message_id}' \
+--header 'X-API-KEY: {token}'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+[
+    {
+        "score": 0.008196721,
+        "source": "File 1",
+        "source_url": "{url}"
+    },
+    {
+        "score": 0.008064516,
+        "source": "File 1",
+        "source_url": "{url}"
+    },
+    {
+        "score": 0.007936508,
+        "source": "File 2",
+        "source_url": "{url}"
+    }
+]
+```
+
+</ResponseExample>

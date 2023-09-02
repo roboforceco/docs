@@ -1,0 +1,28 @@
+---
+openapi: post /v1/datastore/{schema_id}/website
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '/v1/datastore/{datastore_id}/website' \
+--header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' \
+--data '{
+    "link": "https://www.whelp.co/"
+}'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "id": "00000000-0000-0000-0000-000000000000"
+}
+```
+
+</ResponseExample>

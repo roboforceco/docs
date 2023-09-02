@@ -1,0 +1,25 @@
+---
+openapi: post /v1/datastore/{schema_id}/file
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '/v1/datastore/{datastore_id}/file' \
+--header 'X-API-KEY: {token}' \
+--form 'file=@"/Example.pdf"'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "status": "ok"
+}
+```
+
+</ResponseExample>
