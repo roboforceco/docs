@@ -3,7 +3,7 @@
   "name": "LLM Rails",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/logo.svg"
+    "light": "/logo/light.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
