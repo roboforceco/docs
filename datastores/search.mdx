@@ -6,7 +6,7 @@ openapi: post /v1/datastores/{datastore_id}/search
 <RequestExample>
 
 ```bash Example Request
-curl --location '/v1/datastores/{datastore_id}/search' \
+curl --location '{base_url}/v1/datastores/{datastore_id}/search' \
 --header 'Content-Type: application/json' \
 --header 'X-API-KEY: {token}' \
 --data '{
@@ -26,24 +26,27 @@ curl --location '/v1/datastores/{datastore_id}/search' \
         {
             "text": "Text 1",
             "metadata": {
-                "source": "text",
-                "source_url": "",
+                "type": "text",
+                "url": "",
+                "name": "",
                 "score": 0.008196721
             }
         },
         {
             "text": "Text 2",
             "metadata": {
-                "source": "file",
-                "source_url": "url",
+                "type": "file",
+                "url": "{file_url}",
+                "name": "Test File",
                 "score": 0.008196721
             }
         },
         {
             "text": "Text 3",
             "metadata": {
-                "source": "website",
-                "source_url": "url",
+                "type": "website",
+                "url": "https://llmrails.com/",
+                "name": "https://llmrails.com/",
                 "score": 0.008064516
             }
         }

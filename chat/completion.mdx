@@ -23,7 +23,28 @@ curl --location '{base_url}/v1/completion/{app_id}' \
 
 ```json Response
 {
-    "status": "ok"
+    "text": "Test Content",
+    "id": "3733bd45-ca5c-42a3-b69d-a472bf272ca1",
+    "docs": [
+        {
+            "type": "text",
+            "url": "",
+            "name": "",
+            "score": 0.008196721
+        },
+        {
+            "type": "file",
+            "url": "{file_url}",
+            "name": "Test File",
+            "score": 0.008196721
+        },
+        {
+            "type": "website",
+            "url": "https://llmrails.com/",
+            "name": "https://llmrails.com/",
+            "score": 0.008064516
+        }
+    ]
 }
 ```
 

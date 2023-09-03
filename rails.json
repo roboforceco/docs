@@ -309,7 +309,8 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/ConversationRequestBody"
+                                "title": "Arguments",
+                                "type": "object"
                             }
                         }
                     },
@@ -723,17 +724,14 @@
             "AppItemResponse": {
                 "title": "AppItemResponse",
                 "required": [
-                    "pid",
+                    "id",
                     "name",
-                    "type",
-                    "datastore_id",
-                    "created",
-                    "updated"
+                    "type"
                 ],
                 "type": "object",
                 "properties": {
-                    "pid": {
-                        "title": "Pid",
+                    "id": {
+                        "title": "Id",
                         "type": "string"
                     },
                     "name": {
@@ -744,23 +742,15 @@
                         "title": "Type",
                         "type": "string"
                     },
-                    "datastore_id": {
-                        "title": "Datastore Id",
-                        "type": "integer"
-                    },
-                    "widget_configs": {
-                        "title": "Widget Configs"
-                    },
-                    "input_configs": {
-                        "title": "Input Configs"
-                    },
                     "created": {
                         "title": "Created",
-                        "type": "integer"
+                        "type": "integer",
+                        "default": 0
                     },
                     "updated": {
                         "title": "Updated",
-                        "type": "integer"
+                        "type": "integer",
+                        "default": 0
                     }
                 }
             },
@@ -827,34 +817,6 @@
                     "text": {
                         "title": "Text",
                         "type": "string"
-                    }
-                }
-            },
-            "ConversationRequestBody": {
-                "title": "ConversationRequestBody",
-                "required": [
-                    "stream",
-                    "text"
-                ],
-                "type": "object",
-                "properties": {
-                    "stream": {
-                        "title": "Stream",
-                        "type": "boolean"
-                    },
-                    "text": {
-                        "title": "Text",
-                        "type": "string"
-                    },
-                    "session_id": {
-                        "title": "Session Id",
-                        "type": "string",
-                        "default": ""
-                    },
-                    "user_id": {
-                        "title": "User Id",
-                        "type": "string",
-                        "default": ""
                     }
                 }
             },
@@ -1012,15 +974,15 @@
             "MessageItem": {
                 "title": "MessageItem",
                 "required": [
-                    "pid",
+                    "id",
                     "type",
                     "message",
                     "created"
                 ],
                 "type": "object",
                 "properties": {
-                    "pid": {
-                        "title": "Pid",
+                    "id": {
+                        "title": "Id",
                         "type": "string",
                         "description": "Message id"
                     },

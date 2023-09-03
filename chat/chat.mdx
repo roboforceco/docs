@@ -1,3 +1,52 @@
 ---
 openapi: post /v1/chat/{app_id}
 ---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location '{base_url}/v1/completion/{app_id}' \
+--header 'X-API-KEY: {token}' \
+--header 'Content-Type: application/json' \
+--data '{   
+    "stream":false,
+    "text":"What is LLM Rails?"
+}
+'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "text": "Test Content",
+    "id": "3733bd45-ca5c-42a3-b69d-a472bf272ca1",
+    "session_id": "6d94aa27-d23a-42d2-a1d0-ec004d9568fc",
+    "docs": [
+        {
+            "type": "text",
+            "url": "",
+            "name": "",
+            "score": 0.008196721
+        },
+        {
+            "type": "file",
+            "url": "{file_url}",
+            "name": "Test File",
+            "score": 0.008196721
+        },
+        {
+            "type": "website",
+            "url": "https://llmrails.com/",
+            "name": "https://llmrails.com/",
+            "score": 0.008064516
+        }
+    ]
+}
+```
+
+</ResponseExample>
