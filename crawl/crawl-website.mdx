@@ -8,9 +8,9 @@ openapi: post /v1/datastore/{datastore_id}/website
 ```bash Example Request
 curl --location 'https://api.llmrails.com/v1/datastore/{datastore_id}/website' \
 --header 'Content-Type: application/json' \
---header 'Content-Type: application/json' \
+--header 'X-API-TOKEN: {token}' \
 --data '{
-    "link": "https://www.whelp.co/"
+    "link": "https://www.llmrails.com/"
 }'
 ```
 
