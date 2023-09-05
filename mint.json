@@ -42,6 +42,12 @@
   ],
   "navigation": [
     {
+      "group": "API Documentation",
+      "pages": [
+        "auth/auth"
+      ]
+    },
+    {
       "group": "Embedding",
       "pages": [
         "embedding/embed-text"

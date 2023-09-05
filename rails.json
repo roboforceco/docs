@@ -393,8 +393,8 @@
                 "tags": [
                     "Messages"
                 ],
-                "summary": "Get Messages",
-                "operationId": "get_messages_v1_messages__app_id___session_id__get",
+                "summary": "List",
+                "operationId": "List_v1_messages__app_id___session_id__get",
                 "parameters": [
                     {
                         "required": true,
@@ -444,9 +444,9 @@
                 "tags": [
                     "Messages"
                 ],
-                "summary": "Get Message Sources",
+                "summary": "Message Sources",
                 "description": "Get Sources",
-                "operationId": "get_message_sources_v1_messages__message_id__get",
+                "operationId": "Message_Sources_v1_messages__message_id__get",
                 "parameters": [
                     {
                         "required": true,
@@ -464,7 +464,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "title": "Response Get Message Sources V1 Messages  Message Id  Get",
+                                    "title": "Response Message Sources V1 Messages  Message Id  Get",
                                     "type": "array",
                                     "items": {
                                         "$ref": "#/components/schemas/SourcesItemResponse"
@@ -486,24 +486,13 @@
                 }
             }
         },
-        "/v1/datastore/{datastore_id}/website": {
+        "/v1/datastore/website": {
             "post": {
                 "tags": [
                     "Crawl"
                 ],
                 "summary": "Start Crawl Task",
-                "operationId": "Start_Crawl_Task_v1_datastore__datastore_id__website_post",
-                "parameters": [
-                    {
-                        "required": true,
-                        "schema": {
-                            "title": "Datastore Id",
-                            "type": "string"
-                        },
-                        "name": "datastore_id",
-                        "in": "path"
-                    }
-                ],
+                "operationId": "Start_Crawl_Task_v1_datastore_website_post",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -538,23 +527,14 @@
                 }
             }
         },
-        "/v1/datastore/{datastore_id}/website/{task_id}": {
+        "/v1/datastore/website/{task_id}": {
             "get": {
                 "tags": [
                     "Crawl"
                 ],
                 "summary": "Get Crawl Results",
-                "operationId": "Get_Crawl_results_v1_datastore__datastore_id__website__task_id__get",
+                "operationId": "Get_Crawl_results_v1_datastore_website__task_id__get",
                 "parameters": [
-                    {
-                        "required": true,
-                        "schema": {
-                            "title": "Datastore Id",
-                            "type": "string"
-                        },
-                        "name": "datastore_id",
-                        "in": "path"
-                    },
                     {
                         "required": true,
                         "schema": {
@@ -754,40 +734,6 @@
                     }
                 }
             },
-            "AttributeItem": {
-                "title": "AttributeItem",
-                "required": [
-                    "name",
-                    "type"
-                ],
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "title": "Name",
-                        "type": "string",
-                        "description": "Field name"
-                    },
-                    "type": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/AttributeTypeChoices"
-                            }
-                        ],
-                        "description": "Field type"
-                    }
-                }
-            },
-            "AttributeTypeChoices": {
-                "title": "AttributeTypeChoices",
-                "enum": [
-                    "int",
-                    "text",
-                    "boolean",
-                    "number"
-                ],
-                "type": "string",
-                "description": "An enumeration."
-            },
             "Body_File_v1_datastore__datastore_id__file_post": {
                 "title": "Body_File_v1_datastore__datastore_id__file_post",
                 "required": [
@@ -914,8 +860,7 @@
                     "description": {
                         "title": "Description",
                         "type": "string",
-                        "description": "Datastore description",
-                        "default": ""
+                        "description": "Datastore description"
                     },
                     "model": {
                         "allOf": [
@@ -924,14 +869,6 @@
                             }
                         ],
                         "description": "Embedding model"
-                    },
-                    "attributes": {
-                        "title": "Attributes",
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/AttributeItem"
-                        },
-                        "default": []
                     }
                 }
             },
@@ -1174,12 +1111,17 @@
             "TextRequestBody": {
                 "title": "TextRequestBody",
                 "required": [
-                    "text"
+                    "text",
+                    "name"
                 ],
                 "type": "object",
                 "properties": {
                     "text": {
                         "title": "Text",
+                        "type": "string"
+                    },
+                    "name": {
+                        "title": "Name",
                         "type": "string"
                     }
                 }
