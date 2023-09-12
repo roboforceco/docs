@@ -181,14 +181,14 @@
                 }
             }
         },
-        "/v1/datastore/{datastore_id}/text": {
+        "/v1/datastores/{datastore_id}/text": {
             "post": {
                 "tags": [
                     "Upload"
                 ],
                 "summary": "Text",
                 "description": "Upload Text",
-                "operationId": "Text_v1_datastore__datastore_id__text_post",
+                "operationId": "Text_v1_datastores__datastore_id__text_post",
                 "parameters": [
                     {
                         "required": true,
@@ -234,14 +234,14 @@
                 }
             }
         },
-        "/v1/datastore/{datastore_id}/file": {
+        "/v1/datastores/{datastore_id}/file": {
             "post": {
                 "tags": [
                     "Upload"
                 ],
                 "summary": "File",
                 "description": "Upload file",
-                "operationId": "File_v1_datastore__datastore_id__file_post",
+                "operationId": "File_v1_datastores__datastore_id__file_post",
                 "parameters": [
                     {
                         "required": true,
@@ -257,7 +257,7 @@
                     "content": {
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/Body_File_v1_datastore__datastore_id__file_post"
+                                "$ref": "#/components/schemas/Body_File_v1_datastores__datastore_id__file_post"
                             }
                         }
                     },
@@ -309,8 +309,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "title": "Arguments",
-                                "type": "object"
+                                "$ref": "#/components/schemas/ConversationRequestBody"
                             }
                         }
                     },
@@ -486,13 +485,13 @@
                 }
             }
         },
-        "/v1/datastore/website": {
+        "/v1/datastores/website": {
             "post": {
                 "tags": [
                     "Crawl"
                 ],
                 "summary": "Start Crawl Task",
-                "operationId": "Start_Crawl_Task_v1_datastore_website_post",
+                "operationId": "Start_Crawl_Task_v1_datastores_website_post",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -527,13 +526,13 @@
                 }
             }
         },
-        "/v1/datastore/website/{task_id}": {
+        "/v1/datastores/website/{task_id}": {
             "get": {
                 "tags": [
                     "Crawl"
                 ],
                 "summary": "Get Crawl Results",
-                "operationId": "Get_Crawl_results_v1_datastore_website__task_id__get",
+                "operationId": "Get_Crawl_results_v1_datastores_website__task_id__get",
                 "parameters": [
                     {
                         "required": true,
@@ -569,14 +568,14 @@
                 }
             }
         },
-        "/v1/datastore/{datastore_id}/website/{task_id}/embed": {
+        "/v1/datastores/{datastore_id}/website/{task_id}/embed": {
             "post": {
                 "tags": [
                     "Crawl"
                 ],
                 "summary": "Vectorize Website",
                 "description": "Embed websites",
-                "operationId": "vectorize_website_v1_datastore__datastore_id__website__task_id__embed_post",
+                "operationId": "vectorize_website_v1_datastores__datastore_id__website__task_id__embed_post",
                 "parameters": [
                     {
                         "required": true,
@@ -734,8 +733,8 @@
                     }
                 }
             },
-            "Body_File_v1_datastore__datastore_id__file_post": {
-                "title": "Body_File_v1_datastore__datastore_id__file_post",
+            "Body_File_v1_datastores__datastore_id__file_post": {
+                "title": "Body_File_v1_datastores__datastore_id__file_post",
                 "required": [
                     "file"
                 ],
@@ -763,6 +762,34 @@
                     "text": {
                         "title": "Text",
                         "type": "string"
+                    }
+                }
+            },
+            "ConversationRequestBody": {
+                "title": "ConversationRequestBody",
+                "required": [
+                    "stream",
+                    "text"
+                ],
+                "type": "object",
+                "properties": {
+                    "stream": {
+                        "title": "Stream",
+                        "type": "boolean"
+                    },
+                    "text": {
+                        "title": "Text",
+                        "type": "string"
+                    },
+                    "session_id": {
+                        "title": "Session Id",
+                        "type": "string",
+                        "default": ""
+                    },
+                    "user_id": {
+                        "title": "User Id",
+                        "type": "string",
+                        "default": ""
                     }
                 }
             },
@@ -1010,6 +1037,11 @@
                     "text": {
                         "title": "Text",
                         "type": "string"
+                    },
+                    "hybrid": {
+                        "title": "Hybrid",
+                        "type": "boolean",
+                        "default": true
                     },
                     "summarize": {
                         "title": "Summarize",
