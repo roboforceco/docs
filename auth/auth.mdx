@@ -3,15 +3,14 @@ title: "Authentication"
 description: "Authentication details"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+## API Tokens
+
+The LLM Rails API uses API keys for authentication. Visit your [API Keys](https://console.llmrails.com/api-keys) page to retrieve the API key you'll use in your requests.
+
+Remember that your API key is a secret! Do not share it with others or expose it in any client-side code (browsers, apps). Production requests must be routed through your own backend server where your API key can be securely loaded from an environment variable or key management service.
+
+All API requests should include your API key in an HTTP header as follows:
 
 ```bash
 'X-API-KEY': '<token>'
 ```
-
-## API Tokens
-
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
-
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
-
