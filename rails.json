@@ -337,56 +337,6 @@
                 }
             }
         },
-        "/v1/completion/{app_id}": {
-            "post": {
-                "tags": [
-                    "Chat"
-                ],
-                "summary": "Completion",
-                "operationId": "Completion_v1_completion__app_id__post",
-                "parameters": [
-                    {
-                        "required": true,
-                        "schema": {
-                            "title": "App Id",
-                            "type": "string"
-                        },
-                        "name": "app_id",
-                        "in": "path"
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/CompletionBody"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/v1/messages/{app_id}/{session_id}": {
             "get": {
                 "tags": [
@@ -742,26 +692,11 @@
                 "properties": {
                     "file": {
                         "title": "File",
-                        "type": "string",
-                        "format": "binary"
-                    }
-                }
-            },
-            "CompletionBody": {
-                "title": "CompletionBody",
-                "required": [
-                    "stream",
-                    "text"
-                ],
-                "type": "object",
-                "properties": {
-                    "stream": {
-                        "title": "Stream",
-                        "type": "boolean"
-                    },
-                    "text": {
-                        "title": "Text",
-                        "type": "string"
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "binary"
+                        }
                     }
                 }
             },
@@ -1034,13 +969,23 @@
                 ],
                 "type": "object",
                 "properties": {
+                    "k": {
+                        "title": "K",
+                        "maximum": 10.0,
+                        "minimum": 1.0,
+                        "type": "integer",
+                        "description": "Number of documents to return",
+                        "default": 5
+                    },
                     "text": {
                         "title": "Text",
-                        "type": "string"
+                        "type": "string",
+                        "description": "Query to search for"
                     },
                     "hybrid": {
                         "title": "Hybrid",
                         "type": "boolean",
+                        "description": "hybrid search or only vector search",
                         "default": true
                     },
                     "summarize": {
