@@ -37,14 +37,15 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://llmrails.com/blog"
+      "url": "https://blog.llmrails.com"
     }
   ],
   "navigation": [
     {
       "group": "API Documentation",
       "pages": [
-        "auth/auth"
+        "auth/auth",
+        "plugins/plugins"
       ]
     },
     {
