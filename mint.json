@@ -38,14 +38,36 @@
       "name": "Blog",
       "icon": "newspaper",
       "url": "https://blog.llmrails.com"
+    },
+    {
+      "name": "Langchain",
+      "icon": "crow",
+      "url": "langchain"
+    },
+    {
+      "name": "Llamaindex",
+      "icon": "horse",
+      "url": "llamaindex"
     }
   ],
   "navigation": [
     {
       "group": "API Documentation",
       "pages": [
-        "auth/auth",
-        "plugins/plugins"
+        "auth/auth"
+      ]
+    },
+    {
+      "group": "Langchain",
+      "pages": [
+        "langchain/embedding",
+        "langchain/vector_store"
+      ]
+    },
+    {
+      "group": "Llamaindex",
+      "pages": [
+        "llamaindex/embedding"
       ]
     },
     {

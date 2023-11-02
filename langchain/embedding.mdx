@@ -1,0 +1,16 @@
+
+
+```python
+from langchain.embeddings import LLMRailsEmbeddings
+
+embeddings = LLMRailsEmbeddings(model="embedding-english-v1")  # or embedding-multi-v1
+text = "This is a test document."
+
+# To generate embeddings, you can either query an invidivual text, or you can query a list of texts.
+
+query_result = embeddings.embed_query(text)
+query_result[:5]
+
+doc_result = embeddings.embed_documents([text])
+doc_result[0][:5]
+```

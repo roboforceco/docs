@@ -1,0 +1,26 @@
+```python
+import os
+import getpass
+
+os.environ["LLM_RAILS_API_KEY"] = getpass.getpass("LLMRails API Key:")
+os.environ["LLM_RAILS_DATASTORE_ID"] = getpass.getpass("LLMRails Datastore Id:")
+
+vectorstore = LLMRails(api_key=llm_rails_api_key, datastore_id=datastore_id)
+
+# Similarity Search
+
+query = "What do you plan to do about national security?"
+found_docs = vectorstore.similarity_search(query, k=5)
+
+print(found_docs[0].page_content)
+
+# Similarity search with score
+
+query = "What is your approach to national defense"
+found_docs = llm_rails.similarity_search_with_score(query, k=5)
+
+document, score = found_docs[0]
+print(document.page_content)
+print(f"\nScore: {score}")
+
+```
