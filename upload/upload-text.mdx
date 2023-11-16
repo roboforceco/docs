@@ -5,12 +5,24 @@ openapi: post /v1/datastores/{datastore_id}/text
 
 <RequestExample>
 
-```bash Example Request
+```bash Request
 curl --location 'https://api.llmrails.com/v1/datastores/{datastore_id}/text' \
 --header 'Content-Type: application/json' \
 --header 'X-API-KEY: {token}' \
 --data '{
     "text":"Hey There"
+}'
+```
+
+```bash With Metadata
+curl --location 'https://api.llmrails.com/v1/datastores/{datastore_id}/text' \
+--header 'Content-Type: application/json' \
+--header 'X-API-KEY: {token}' \
+--data '{
+    "text":"Hey There",
+    "metadata":{
+        "department": "Finance"
+    }
 }'
 ```
 

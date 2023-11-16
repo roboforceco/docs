@@ -5,13 +5,31 @@ openapi: post /v1/datastores/{datastore_id}/search
 
 <RequestExample>
 
-```bash Example Request
+```bash Request
 curl --location 'https://api.llmrails.com/v1/datastores/{datastore_id}/search' \
 --header 'Content-Type: application/json' \
 --header 'X-API-KEY: {token}' \
 --data '{
     "text":"What is LLM Rails?",
     "summarize": false
+}
+'
+```
+
+```bash With Filters
+curl --location 'https://api.llmrails.com/v1/datastores/{datastore_id}/search' \
+--header 'Content-Type: application/json' \
+--header 'X-API-KEY: {token}' \
+--data '{
+    "text":"What is LLM Rails?",
+    "summarize": false,
+    "conditions":[
+        {
+            "field":"color",
+            "operator":"eq",
+            "value":"red"
+        }
+    ]
 }
 '
 ```
