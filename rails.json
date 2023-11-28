@@ -580,6 +580,56 @@
                 }
             }
         },
+        "/v1/datastores/{datastore_id}/documents": {
+            "delete": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Delete",
+                "operationId": "Delete_v1_datastores__datastore_id__documents_delete",
+                "parameters": [
+                    {
+                        "required": true,
+                        "schema": {
+                            "title": "Datastore Id",
+                            "type": "string"
+                        },
+                        "name": "datastore_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeleteDocumentBody"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/v1/apps": {
             "get": {
                 "tags": [
@@ -723,6 +773,10 @@
                 ],
                 "type": "object",
                 "properties": {
+                    "metadata": {
+                        "title": "Metadata",
+                        "type": "string"
+                    },
                     "file": {
                         "title": "File",
                         "type": "array",
@@ -912,6 +966,22 @@
                 "properties": {
                     "status": {
                         "$ref": "#/components/schemas/StatusChoices"
+                    }
+                }
+            },
+            "DeleteDocumentBody": {
+                "title": "DeleteDocumentBody",
+                "required": [
+                    "documents"
+                ],
+                "type": "object",
+                "properties": {
+                    "documents": {
+                        "title": "Documents",
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
                     }
                 }
             },

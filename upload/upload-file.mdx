@@ -11,6 +11,14 @@ curl --location 'https://api.llmrails.com/v1/datastores/{datastore_id}/file' \
 --form 'file=@"/Example.pdf"'
 ```
 
+
+```bash With Metadata
+curl --location 'https://api.llmrails.com/v1/datastores/{datastore_id}/file' \
+--header 'X-API-KEY: {token}' \
+--form 'file=@"/Example.pdf"' \
+--form 'metadata="{\"department\":\"finance\"}"'
+```
+
 </RequestExample>
 
 
