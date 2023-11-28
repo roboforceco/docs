@@ -1,0 +1,27 @@
+---
+openapi: delete /v1/datastores/{datastore_id}/documents
+---
+
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request DELETE 'https://api.llmrails.com/v1/datastores/{datastore_id}/documents' \
+--header 'X-API-KEY: {token}'
+--data '{
+    "documents":[23786, 23785, 23784]
+}'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+
+```json Response
+{
+    "status": "ok"
+}
+```
+
+</ResponseExample>

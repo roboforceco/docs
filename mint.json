@@ -86,6 +86,12 @@
       ]
     },
     {
+      "group": "Documents",
+      "pages": [
+        "documents/delete-documents"
+      ]
+    },
+    {
       "group": "Chat",
       "pages": [
         "chat/chat"
